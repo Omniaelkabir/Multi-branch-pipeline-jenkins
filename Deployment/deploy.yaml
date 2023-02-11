@@ -3,21 +3,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: agent-app
-  name: agent-app
+    app: bakehouse
+  name: bakehouse
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: agent-app
+      app: bakehouse
   template:
     metadata:
       labels:
-        app: agent-app
+        app: bakehouse
     spec:
       containers:
-      - image: jenkins-pro:${BUILD_NUMBER}
-        name: agent-app
+      - image: kareemelkasaby/vfbakehouse:${BUILD_NUMBER}
+        name: bakehouse
         imagePullPolicy: Always
         ports:
         - containerPort: 80
